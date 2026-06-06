@@ -24,6 +24,7 @@ def verify_mailgun_signature(timestamp: str, token: str, signature: str) -> bool
 
 @app.post("/mailgun/webhook")
 async def mailgun_webhook(request: Request):
+    print("DEBUG SUPABASE_DB_URL =", os.getenv("SUPABASE_DB_URL"))
     body = await request.json()
 
     # Extract signature fields
